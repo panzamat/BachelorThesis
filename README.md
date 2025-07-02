@@ -38,3 +38,6 @@ Intracranial aneurysms (IAs) are pathological dilations of cerebral arteries and
 
 ## Repository Structure
 
+
+## Model Weights
+ - Model weights are stored in a Google Drive folder due to size constrictions of GitHub. The folder can be found under: https://drive.google.com/drive/folders/18eRfRkyUcop7-Lu-25G0-qgmonbOwtwO?usp=sharing
