@@ -1,43 +1,42 @@
-# BachelorThesis: Multimodal Deep Learning for Automatic Segmentation of Intracranial Aneurysms
+# Bachelor Thesis: Multimodal Deep Learning for Automatic Segmentation of Intracranial Aneurysms
 
-This repository contains the code and documentation for the Bachelor's thesis
+This repository contains all source code, figures and needed environment requirements for the Bachelor's thesis **"Multimodal Deep Learning for Automatic Segmentation of Intracranial Aneurysms"** 
 
-## 📌 Overview
+## Thesis Overview
 
-Intracranial aneurysms (IAs) are pathological dilations of cerebral arteries and pose a major health risk if ruptured. This thesis explores deep learning methods for automatic segmentation of IAs in 3D medical images, comparing **unimodal** and **multimodal** approaches using CTA and MRA data.
+This work investigates the potential of deep learning models, particularly nnU-Net and UNETR,for automatic IA segmentation from CTA and MRA images by exploring unimodal and multimodal approaches.
 
-### Objectives
+## Setup Instructions
+### For nnU-Net:
 
-- Evaluate nnU-Net models on unimodal (CTA/MRA) and multimodal datasets.
-- Investigate whether multimodal inputs improve segmentation quality.
-- Benchmark transformer-based UNETR models and analyze their limitations.
-- Compare results with established models such as GLIA-Net.
+```bash
+# Create and activate a new Conda environment
+conda create -n nnunet_env python=3.12.4 -y
+conda activate nnunet_env
 
-## Methods
+# Install dependencies
+pip install -r environment.yml
+```
+### For UNETR:
+```bash
+# Create and activate a new Conda environment
+conda create -n unetr_env python=3.10 -y
+conda activate unetr_env
 
-- **Data**:
-  - 1,435 CTA images
-  - 282 MRA images
-- **Models**:
-  - 2 unimodal nnU-Net models (CTA, MRA)
-  - 2 multimodal nnU-Net models (baseline and refined)
-  - 2 multimodal UNETR models
-- **Evaluation**:
-  - Target-wise (IoU, Recall, Precision, etc.)
-  - Voxel-wise (DSC, TP, FP, FN, etc.)
-  - Confidence interval analysis
-  - Failure analysis and diagnostic visualizations
-
-## Key Findings
-
-- **Unimodal nnU-Net models** are strong and reliable baselines.
-- **Multimodal nnU-Net models** did not improve target-wise detection, but the refined model showed **better voxel-wise segmentation** (especially vs. MRA).
-- **UNETR models failed** to produce true positives, highlighting challenges in highly imbalanced data and model training stability.
-- Compared to **GLIA-Net**, the nnU-Net models achieved **higher precision and DSC**, but lower recall.
-- Model performance varied notably due to **randomness and fold instability**, especially in MRA folds.
-
-## Repository Structure
-
+# Install dependencies
+pip install -r environment-dev.yml
+```
 
 ## Model Weights
- - Model weights are stored in a Google Drive folder due to size constrictions of GitHub. The folder can be found under: https://drive.google.com/drive/folders/18eRfRkyUcop7-Lu-25G0-qgmonbOwtwO?usp=sharing
+Due to file size limitations, trained model weights are provided externally:
+
+**Google Drive**  
+[Link to model weights](https://drive.google.com/drive/folders/18eRfRkyUcop7-Lu-25G0-qgmonbOwtwO?usp=sharing)
+
+## References
+
+- Hatamizadeh, A., Tang, Y., Nath, V., Yang, D., Myronenko, A., Landman, B., Roth, H., & Xu, D. (2021). [UNETR: Transformers for 3D Medical Image Segmentation](http://arxiv.org/abs/2103.10504). *arXiv preprint arXiv:2103.10504*. https://doi.org/10.48550/arXiv.2103.10504
+
+- Isensee, F., Jaeger, P. F., Kohl, S. A. A., Petersen, J., & Maier-Hein, K. H. (2021). [nnU-Net: A self-configuring method for deep learning-based biomedical image segmentation](https://www.nature.com/articles/s41592-020-01008-z). *Nature Methods, 18*(2), 203–211. https://doi.org/10.1038/s41592-020-01008-z
+
+
